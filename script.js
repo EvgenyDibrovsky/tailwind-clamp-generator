@@ -39,10 +39,10 @@ function generateClamp() {
         base = base.toFixed(2);
     }
 
-    const minRem = (min / 16).toFixed(2);
-    const maxRem = (max / 16).toFixed(2);
+    const minRem = Number((min / 16).toFixed(2)).toString();
+    const maxRem = Number((max / 16).toFixed(2)).toString();
 
-    const clamp = `clamp(${minRem}rem, ${vw}vw + ${base}px, ${maxRem}rem)`;
+    const clamp = `clamp(${minRem}rem,${vw}vw+${base}px,${maxRem}rem)`;
     const tailwind = `text-[${clamp}]`;
 
     document.getElementById("result").textContent = tailwind;
