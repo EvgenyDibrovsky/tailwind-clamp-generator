@@ -31,6 +31,10 @@ function generateClamp() {
     let vw = slope * 100;
     let base = min - slope * minWidth;
 
+    if (base < 0) {
+        base = 0;
+    }
+
     if (round) {
         vw = Math.round(vw);
         base = Math.round(base);
