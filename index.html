@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clamp() Generator for Tailwind</title>
+    <title>Clamp() Generator for Tailwind & Native CSS</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,23 @@
 
 <body>
     <div class="container">
-        <h1>Tailwind Clamp() Generator</h1>
+        <h1>Clamp() Generator for Tailwind & Native CSS</h1>
+
+        <div class="form-group">
+            <label>Output format:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="format" value="tailwind" checked /> Tailwind CSS</label>
+                <label><input type="radio" name="format" value="native" /> Native CSS</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Input unit:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="inputUnit" value="px" checked /> px</label>
+                <label><input type="radio" name="inputUnit" value="rem" /> rem</label>
+            </div>
+        </div>
 
         <div class="form-group">
             <label for="minSize">Minimum text size (mobile):</label>
@@ -36,11 +52,11 @@
             <input type="number" id="maxWidth" value="1920" />
         </div>
 
-        <div class="form-group">
-            <label>Input unit:</label>
+        <div class="form-group" id="outputUnitGroup">
+            <label>Output unit:</label>
             <div class="radio-group">
-                <label><input type="radio" name="unit" value="px" checked /> px</label>
-                <label><input type="radio" name="unit" value="rem" /> rem</label>
+                <label><input type="radio" name="outputUnit" value="px" checked /> px</label>
+                <label><input type="radio" name="outputUnit" value="rem" /> rem</label>
             </div>
         </div>
 
