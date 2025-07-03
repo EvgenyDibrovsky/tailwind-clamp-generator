@@ -8,38 +8,46 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fira+Code&display=swap"
+        rel="stylesheet">
     <script src="js/unit-converter.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Unit Converter</h1>
+    <section>
+        <div class="nav-menu-pages">
+            <a class="nav-menu-pages-item" href="index.html">Home</a>
+            <a class="nav-menu-pages-item" href="clamp-generator.html">Clamp Generator - font</a>
+        </div>
+        <div class="container">
+            <h1>Unit Converter</h1>
 
-        <div class="form-group">
-            <label>Conversion direction:</label>
-            <div class="radio-group">
-                <label><input type="radio" name="direction" value="px-to-rem" checked /> PX to REM</label>
-                <label><input type="radio" name="direction" value="rem-to-px" /> REM to PX</label>
+
+            <div class="form-group">
+                <label>Conversion direction:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="direction" value="px-to-rem" checked /> PX to REM</label>
+                    <label><input type="radio" name="direction" value="rem-to-px" /> REM to PX</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputValue">Input value:</label>
+                <input type="number" class="converter-input" placeholder="Enter value..." step="any" />
+            </div>
+
+            <div class="form-group">
+                <label>Result:</label>
+                <code class="converter-result result-display">Enter a value to convert</code>
             </div>
         </div>
 
-        <div class="form-group">
-            <label for="inputValue">Input value:</label>
-            <input type="number" class="converter-input" placeholder="Enter value..." step="any" />
-        </div>
+        <div class="toast" id="toast">Code copied to clipboard!</div>
 
-        <div class="form-group">
-            <label>Result:</label>
-            <code class="converter-result result-display">Enter a value to convert</code>
+        <div class="made-by">
+            <p>Made by <a href="https://github.com/EvgenyDibrovsky" target="_blank">Evgeny Dibrovsky</a></p>
         </div>
-    </div>
- 
-    <div class="toast" id="toast">Code copied to clipboard!</div>
-
-    <div class="made-by">
-        <p>Made by <a href="https://github.com/EvgenyDibrovsky" target="_blank">Evgeny Dibrovsky</a></p>
-    </div>
+    </section>
 </body>
 
 </html>
