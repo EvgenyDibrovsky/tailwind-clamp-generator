@@ -1,5 +1,20 @@
+function toggleOutputUnit() {
+    const format = document.querySelector('input[name="format"]:checked').value;
+    const outputUnitGroup = document.getElementById('outputUnitGroup');
+    
+    if (format === 'tailwind') {
+        outputUnitGroup.style.display = 'none';
+        // Set rem as default for Tailwind
+        document.querySelector('input[name="outputUnit"][value="rem"]').checked = true;
+    } else {
+        outputUnitGroup.style.display = 'block';
+    }
+}
+
 function generateClamp() {
-    const unit = document.querySelector('input[name="unit"]:checked').value;
+    const format = document.querySelector('input[name="format"]:checked').value;
+    const inputUnit = document.querySelector('input[name="inputUnit"]:checked').value;
+    const outputUnit = document.querySelector('input[name="outputUnit"]:checked').value;
     const round = document.getElementById("rounding").checked;
 
     let min = parseFloat(document.getElementById("minSize").value);
@@ -7,7 +22,8 @@ function generateClamp() {
     let minWidth = parseFloat(document.getElementById("minWidth").value);
     let maxWidth = parseFloat(document.getElementById("maxWidth").value);
 
-    if (unit === 'rem') {
+    // Convert input values to pixels for calculations
+    if (inputUnit === 'rem') {
         min = min * 16;
         max = max * 16;
     }
@@ -43,13 +59,30 @@ function generateClamp() {
         base = base.toFixed(2);
     }
 
-    const minRem = Number((min / 16).toFixed(2)).toString();
-    const maxRem = Number((max / 16).toFixed(2)).toString();
+    let result;
+    
+    if (format === 'tailwind') {
+        // For Tailwind, always use rem for min/max values
+        const minRem = round ? Number((min / 16).toFixed(2)) : Number((min / 16).toFixed(3));
+        const maxRem = round ? Number((max / 16).toFixed(2)) : Number((max / 16).toFixed(3));
+        const clamp = `clamp(${minRem}rem,${vw}vw+${base}px,${maxRem}rem)`;
+        result = `text-[${clamp}]`;
+    } else {
+        // Native CSS format
+        if (outputUnit === 'rem') {
+            const minRem = round ? Number((min / 16).toFixed(2)) : Number((min / 16).toFixed(3));
+            const maxRem = round ? Number((max / 16).toFixed(2)) : Number((max / 16).toFixed(3));
+            const baseRem = round ? Number((base / 16).toFixed(2)) : Number((base / 16).toFixed(3));
+            result = `font-size: clamp(${minRem}rem, calc(${vw}vw + ${baseRem}rem), ${maxRem}rem);`;
+        } else {
+            // px output
+            const minPx = round ? Math.round(min) : min;
+            const maxPx = round ? Math.round(max) : max;
+            result = `font-size: clamp(${minPx}px, calc(${vw}vw + ${base}px), ${maxPx}px);`;
+        }
+    }
 
-    const clamp = `clamp(${minRem}rem,${vw}vw+${base}px,${maxRem}rem)`;
-    const tailwind = `text-[${clamp}]`;
-
-    document.getElementById("result").textContent = tailwind;
+    document.getElementById("result").textContent = result;
 }
 
 function showToast() {
@@ -80,7 +113,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     radios.forEach(radio => {
-        radio.addEventListener('change', generateClamp);
+        radio.addEventListener('change', function() {
+            if (radio.name === 'format') {
+                toggleOutputUnit();
+            }
+            generateClamp();
+        });
     });
 
     checkbox.addEventListener('change', generateClamp);
@@ -91,5 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Initialize on page load
+    toggleOutputUnit();
     generateClamp();
 }); 
