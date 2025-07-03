@@ -1,6 +1,6 @@
 :root {
     --primary-color: #1676cf;
-    --primary-hover: #1676cf;
+    --primary-hover: #1a61a3;
     --background-color: #f8fafc;
     --text-color: #1e293b;
     --border-color: #e2e8f0;
@@ -23,9 +23,37 @@ body {
     line-height: 1.5;
     padding: 2rem 1rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    gap: 2rem;
     align-items: center;
     min-height: 100dvh;
+}
+.nav-menu-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-direction: column;
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+}
+.nav-menu-home-item {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.25rem;
+    font-weight: 500;
+    background-color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: white;
+    transition: all 0.2s ease;
+    width: 100%;
+    text-align: center;
+}
+.nav-menu-home-item:hover {
+    background-color: var(--primary-hover);
 }
 
 .container {
@@ -59,6 +87,7 @@ body {
     transform: translateX(-50%) translateY(0);
     opacity: 1;
 }
+
 
 h1 {
     font-size: 1.875rem;
@@ -171,6 +200,57 @@ code.copied::after {
     font-weight: 500;
 }
 
+/* Converter specific styles */
+.result-display {
+    background-color: var(--code-background);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: 'Fira Code', monospace;
+    word-break: break-word;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+    position: relative;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.result-display.clickable {
+    cursor: pointer;
+    background-color: #e2e8f0;
+}
+
+.result-display.clickable:hover {
+    background-color: #cbd5e1;
+    border-color: var(--primary-color);
+}
+
+.common-conversions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.common-btn {
+    width: auto;
+    padding: 0.5rem 1rem;
+    background-color: #f1f5f9;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.common-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
 @media (max-width: 640px) {
     body {
         padding: 1rem 0.5rem;
@@ -193,9 +273,8 @@ code.copied::after {
         width: 90%;
         text-align: center;
     }
+}
 
-
-} 
 .made-by {
     display: inline-block;
     position: absolute;
@@ -207,7 +286,8 @@ code.copied::after {
     text-decoration: none;
     color: var(--primary-color);
 }
-.made-by a:hover{
+
+.made-by a:hover {
     text-decoration: underline;
 }
  
