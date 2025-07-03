@@ -1,6 +1,6 @@
 function toggleOutputUnit() {
     const format = document.querySelector('input[name="format"]:checked').value;
-    const outputUnitGroup = document.getElementById('outputUnitGroup');
+    const outputUnitGroup = document.querySelector('.output-unit-group');
     
     if (format === 'tailwind') {
         outputUnitGroup.style.display = 'none';
@@ -15,12 +15,12 @@ function generateClamp() {
     const format = document.querySelector('input[name="format"]:checked').value;
     const inputUnit = document.querySelector('input[name="inputUnit"]:checked').value;
     const outputUnit = document.querySelector('input[name="outputUnit"]:checked').value;
-    const round = document.getElementById("rounding").checked;
+    const round = document.querySelector(".rounding-checkbox").checked;
 
-    let min = parseFloat(document.getElementById("minSize").value);
-    let max = parseFloat(document.getElementById("maxSize").value);
-    let minWidth = parseFloat(document.getElementById("minWidth").value);
-    let maxWidth = parseFloat(document.getElementById("maxWidth").value);
+    let min = parseFloat(document.querySelector('.clamp-input[data-field="minSize"]').value);
+    let max = parseFloat(document.querySelector('.clamp-input[data-field="maxSize"]').value);
+    let minWidth = parseFloat(document.querySelector('.clamp-input[data-field="minWidth"]').value);
+    let maxWidth = parseFloat(document.querySelector('.clamp-input[data-field="maxWidth"]').value);
 
     // Convert input values to pixels for calculations
     if (inputUnit === 'rem') {
@@ -29,17 +29,17 @@ function generateClamp() {
     }
 
     if (isNaN(min) || isNaN(max) || isNaN(minWidth) || isNaN(maxWidth)) {
-        document.getElementById("result").textContent = "Invalid values: input is not a number.";
+        document.querySelector(".clamp-result").textContent = "Invalid values: input is not a number.";
         return;
     }
 
     if (min >= max) {
-        document.getElementById("result").textContent = "Invalid values: min must be less than max.";
+        document.querySelector(".clamp-result").textContent = "Invalid values: min must be less than max.";
         return;
     }
 
     if (minWidth >= maxWidth) {
-        document.getElementById("result").textContent = "Invalid values: min screen width must be less than max.";
+        document.querySelector(".clamp-result").textContent = "Invalid values: min screen width must be less than max.";
         return;
     }
 
@@ -82,7 +82,7 @@ function generateClamp() {
         }
     }
 
-    document.getElementById("result").textContent = result;
+    document.querySelector(".clamp-result").textContent = result;
 }
 
 function showToast() {
@@ -103,10 +103,10 @@ function copyToClipboard(text) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const inputs = document.querySelectorAll('input[type="number"]');
+    const inputs = document.querySelectorAll('.clamp-input');
     const radios = document.querySelectorAll('input[type="radio"]');
-    const checkbox = document.getElementById('rounding');
-    const resultElement = document.getElementById("result");
+    const checkbox = document.querySelector('.rounding-checkbox');
+    const resultElement = document.querySelector(".clamp-result");
 
     inputs.forEach(input => {
         input.addEventListener('input', generateClamp);
