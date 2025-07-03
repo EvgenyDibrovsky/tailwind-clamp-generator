@@ -15,13 +15,35 @@
     box-sizing: border-box;
 }
 
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    z-index: 1000;
+    background-color: var(--background-color);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
 body {
     position: relative;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1.5;
-    padding: 2rem 1rem;
+
+
+}
+
+section {
+    min-height: 100dvh;
+    position: relative;
+    padding: 6rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,32 +83,31 @@ body {
 }
 
 .nav-menu-pages {
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
-    flex-direction: column;
-
-    @media (min-width: 768px) {
-        flex-direction: row;
-    }
+    gap: 2rem;
 
     .nav-menu-pages-item {
         text-decoration: none;
-        color: var(--text-color);
+        color: #000000;
         font-size: 1.25rem;
         font-weight: 500;
-        background-color: var(--primary-color);
-        padding: 0.5rem 1rem;
+
         border-radius: 0.5rem;
-        color: white;
         transition: all 0.2s ease;
         width: 100%;
+  
         text-align: center;
+
+        @media (min-width: 768px) {
+            width: fit-content;
+        }
     }
 
-    .nav-menu-home-item:hover {
-        background-color: var(--primary-hover);
+    .nav-menu-pages-item:hover {
+        color: #6b6b6b
     }
 }
 

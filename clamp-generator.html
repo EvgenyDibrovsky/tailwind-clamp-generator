@@ -8,66 +8,78 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fira+Code&display=swap"
+        rel="stylesheet">
     <script src="js/clamp-generator-font-size.js" defer></script>
 </head>
 
+
 <body>
-     <div class="container">
-        <h1>Clamp() Generator for Tailwind & Native CSS</h1>
+    <header>
+        <div class="nav-menu-pages">
+            <a class="nav-menu-pages-item" href="index.html">Home</a>
+            <a class="nav-menu-pages-item" href="unit-сonverter.html">Unit Converter</a>
+            <a class="nav-menu-pages-item" href="clamp-generator.html">Clamp Generator - font</a>
+        </div>
+    </header>
+      <section>
+        <div class="container">
+            <h1>Clamp() Generator for Tailwind & Native CSS</h1>
 
-        <div class="form-group">
-            <label>Output format:</label>
-            <div class="radio-group">
-                <label><input type="radio" name="format" value="tailwind" checked /> Tailwind CSS</label>
-                <label><input type="radio" name="format" value="native" /> Native CSS</label>
+            <div class="form-group">
+                <label>Output format:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="format" value="tailwind" checked /> Tailwind CSS</label>
+                    <label><input type="radio" name="format" value="native" /> Native CSS</label>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label>Input unit:</label>
-            <div class="radio-group">
-                <label><input type="radio" name="inputUnit" value="px" checked /> px</label>
-                <label><input type="radio" name="inputUnit" value="rem" /> rem</label>
+            <div class="form-group">
+                <label>Input unit:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="inputUnit" value="px" checked /> px</label>
+                    <label><input type="radio" name="inputUnit" value="rem" /> rem</label>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label for="minSize">Minimum text size (mobile):</label>
-            <input type="number" class="clamp-input" data-field="minSize" placeholder="e.g. 14 or 0.875" />
-        </div>
-
-        <div class="form-group">
-            <label for="maxSize">Maximum text size (desktop):</label>
-            <input type="number" class="clamp-input" data-field="maxSize" placeholder="e.g. 22 or 1.375" />
-        </div>
-
-        <div class="form-group">
-            <label for="minWidth">Minimum screen width (px):</label>
-            <input type="number" class="clamp-input" data-field="minWidth" value="320" />
-        </div>
-
-        <div class="form-group">
-            <label for="maxWidth">Maximum screen width (px):</label>
-            <input type="number" class="clamp-input" data-field="maxWidth" value="1920" />
-        </div>
-
-        <div class="form-group output-unit-group">
-            <label>Output unit:</label>
-            <div class="radio-group">
-                <label><input type="radio" name="outputUnit" value="px" checked /> px</label>
-                <label><input type="radio" name="outputUnit" value="rem" /> rem</label>
+            <div class="form-group">
+                <label for="minSize">Minimum text size (mobile):</label>
+                <input type="number" class="clamp-input" data-field="minSize" placeholder="e.g. 14 or 0.875" />
             </div>
+
+            <div class="form-group">
+                <label for="maxSize">Maximum text size (desktop):</label>
+                <input type="number" class="clamp-input" data-field="maxSize" placeholder="e.g. 22 or 1.375" />
+            </div>
+
+            <div class="form-group">
+                <label for="minWidth">Minimum screen width (px):</label>
+                <input type="number" class="clamp-input" data-field="minWidth" value="320" />
+            </div>
+
+            <div class="form-group">
+                <label for="maxWidth">Maximum screen width (px):</label>
+                <input type="number" class="clamp-input" data-field="maxWidth" value="1920" />
+            </div>
+
+            <div class="form-group output-unit-group">
+                <label>Output unit:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="outputUnit" value="px" checked /> px</label>
+                    <label><input type="radio" name="outputUnit" value="rem" /> rem</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label><input type="checkbox" class="rounding-checkbox" /> Enable rounding for smoother values</label>
+            </div>
+
+            <code class="clamp-result"></code>
         </div>
+        <div class="toast" id="toast">Code copied to clipboard!</div>
 
-        <div class="form-group">
-            <label><input type="checkbox" class="rounding-checkbox" /> Enable rounding for smoother values</label>
-        </div>
-
-        <code class="clamp-result"></code>
-    </div>
-    <div class="toast" id="toast">Code copied to clipboard!</div>
-
+    
+    </section>
     <div class="made-by">
         <p>Made by <a href="https://github.com/EvgenyDibrovsky" target="_blank">Evgeny Dibrovsky</a></p>
     </div>
