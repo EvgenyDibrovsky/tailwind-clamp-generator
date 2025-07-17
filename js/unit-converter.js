@@ -12,7 +12,13 @@ function convertValue() {
     let result;
     if (direction === 'px-to-rem') {
         result = (inputValue / 16).toFixed(3);
-        resultElement.textContent = `${result}rem`;
+        // Remove trailing zeros and decimal point if result is a whole number
+        const remValue = parseFloat(result);
+        if (remValue === Math.round(remValue)) {
+            resultElement.textContent = `${Math.round(remValue)}rem`;
+        } else {
+            resultElement.textContent = `${result}rem`;
+        }
     } else {
         result = (inputValue * 16).toFixed(1);
         // Remove .0 if the result is a whole number
