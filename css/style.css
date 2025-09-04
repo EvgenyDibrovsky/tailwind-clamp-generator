@@ -59,9 +59,7 @@ section {
     gap: 1.5rem;
     flex-direction: column;
 
-    @media (min-width: 768px) {
-        flex-direction: row;
-    }
+ 
 
     .nav-menu-home-item {
         text-decoration: none;
