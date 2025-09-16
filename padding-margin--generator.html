@@ -20,7 +20,7 @@
             <a class="nav-menu-pages-item" href="index.html">Home</a>
             <a class="nav-menu-pages-item" href="unit-сonverter.html">Unit Converter</a>
             <a class="nav-menu-pages-item" href="clamp-generator.html">Clamp Generator - font</a>
-            <a class="nav-menu-pages-item" href="padding-generator.html">Padding & Margin Generator</a>
+            <a class="nav-menu-pages-item" href="padding-margin--generator.html">Padding & Margin Generator</a>
         </div>
     </header>
       <section>
@@ -44,50 +44,36 @@
         </div>
 
         <div class="form-group">
+            <label>Тип отступа:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="spacingType" value="padding" checked /> padding</label>
+                <label><input type="radio" name="spacingType" value="margin" /> margin</label>
+            </div>
+        </div>
+
+        <div class="form-group padding-fields" style="display: none;">
             <label for="minPadding">Минимальный padding (мобильные):</label>
             <input type="number" class="clamp-input" data-field="minPadding" placeholder="например: 8 или 0.5" />
         </div>
 
-        <div class="form-group">
+        <div class="form-group padding-fields" style="display: none;">
             <label for="maxPadding">Максимальный padding (десктоп):</label>
             <input type="number" class="clamp-input" data-field="maxPadding" placeholder="например: 32 или 2" />
         </div>
 
-        <div class="form-group">
-            <label>Направление padding:</label>
-            <div class="radio-group">
-                <label><input type="radio" name="paddingDirection" value="p" checked /> p (все стороны)</label>
-                <label><input type="radio" name="paddingDirection" value="pt" /> pt (верх)</label>
-                <label><input type="radio" name="paddingDirection" value="pb" /> pb (низ)</label>
-                <label><input type="radio" name="paddingDirection" value="pl" /> pl (лево)</label>
-                <label><input type="radio" name="paddingDirection" value="pr" /> pr (право)</label>
-                <label><input type="radio" name="paddingDirection" value="px" /> px (горизонтально)</label>
-                <label><input type="radio" name="paddingDirection" value="py" /> py (вертикально)</label>
-            </div>
-        </div>
+        
 
-        <div class="form-group">
+        <div class="form-group margin-fields" style="display: none;">
             <label for="minMargin">Минимальный margin (мобильные):</label>
             <input type="number" class="clamp-input" data-field="minMargin" placeholder="например: 16 или 1" />
         </div>
 
-        <div class="form-group">
+        <div class="form-group margin-fields" style="display: none;">
             <label for="maxMargin">Максимальный margin (десктоп):</label>
             <input type="number" class="clamp-input" data-field="maxMargin" placeholder="например: 64 или 4" />
         </div>
 
-        <div class="form-group">
-            <label>Направление margin:</label>
-            <div class="radio-group">
-                <label><input type="radio" name="marginDirection" value="m" checked /> m (все стороны)</label>
-                <label><input type="radio" name="marginDirection" value="mt" /> mt (верх)</label>
-                <label><input type="radio" name="marginDirection" value="mb" /> mb (низ)</label>
-                <label><input type="radio" name="marginDirection" value="ml" /> ml (лево)</label>
-                <label><input type="radio" name="marginDirection" value="mr" /> mr (право)</label>
-                <label><input type="radio" name="marginDirection" value="mx" /> mx (горизонтально)</label>
-                <label><input type="radio" name="marginDirection" value="my" /> my (вертикально)</label>
-            </div>
-        </div>
+        
 
         <div class="form-group">
             <label for="minWidth">Минимальная ширина экрана (px):</label>

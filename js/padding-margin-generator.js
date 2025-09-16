@@ -3,17 +3,40 @@ document.addEventListener('DOMContentLoaded', function() {
     const formatRadios = document.querySelectorAll('input[name="format"]');
     const inputUnitRadios = document.querySelectorAll('input[name="inputUnit"]');
     const outputUnitRadios = document.querySelectorAll('input[name="outputUnit"]');
-    const paddingDirectionRadios = document.querySelectorAll('input[name="paddingDirection"]');
-    const marginDirectionRadios = document.querySelectorAll('input[name="marginDirection"]');
+    const spacingTypeRadios = document.querySelectorAll('input[name="spacingType"]');
     const roundingCheckbox = document.querySelector('.rounding-checkbox');
     const resultElement = document.querySelector('.clamp-result');
     const toast = document.getElementById('toast');
+    
+    // Элементы полей для показа/скрытия
+    const paddingFields = document.querySelectorAll('.padding-fields');
+    const marginFields = document.querySelectorAll('.margin-fields');
+
+    // Функция для показа/скрытия полей в зависимости от выбранного типа
+    function toggleFields() {
+        const selectedType = document.querySelector('input[name="spacingType"]:checked').value;
+        
+        if (selectedType === 'padding') {
+            paddingFields.forEach(field => field.style.display = 'block');
+            marginFields.forEach(field => field.style.display = 'none');
+        } else {
+            paddingFields.forEach(field => field.style.display = 'none');
+            marginFields.forEach(field => field.style.display = 'block');
+        }
+    }
 
     // Функция для расчета clamp значения
     function calculateClamp(minValue, maxValue, minWidth, maxWidth, inputUnit, outputUnit, enableRounding) {
-        // Если значения одинаковые, возвращаем простое значение
+        // Если значения одинаковые, возвращаем простое значение в единицах вывода
         if (minValue === maxValue) {
-            return `${minValue}${inputUnit}`;
+            let valueOut = minValue;
+            if (inputUnit !== outputUnit) {
+                if (inputUnit === 'px' && outputUnit === 'rem') valueOut = minValue / 16;
+                if (inputUnit === 'rem' && outputUnit === 'px') valueOut = minValue * 16;
+            }
+            if (enableRounding) valueOut = Math.round(valueOut * 1000) / 1000;
+            const unit = outputUnit === 'rem' ? 'rem' : 'px';
+            return `${valueOut}${unit}`;
         }
 
         // Конвертируем значения в пиксели для расчетов
@@ -21,6 +44,18 @@ document.addEventListener('DOMContentLoaded', function() {
         let maxPx = inputUnit === 'px' ? maxValue : maxValue * 16;
 
         // Рассчитываем slope и intercept
+        // Если диапазон ширины нулевой, используем среднее значение без вычисления наклона
+        if (maxWidth === minWidth) {
+            const unit = outputUnit === 'rem' ? 'rem' : 'px';
+            let avgValue = (minValue + maxValue) / 2;
+            if (inputUnit !== outputUnit) {
+                if (inputUnit === 'px' && outputUnit === 'rem') avgValue = avgValue / 16;
+                if (inputUnit === 'rem' && outputUnit === 'px') avgValue = avgValue * 16;
+            }
+            if (enableRounding) avgValue = Math.round(avgValue * 1000) / 1000;
+            return `${avgValue}${unit}`;
+        }
+
         const slope = (maxPx - minPx) / (maxWidth - minWidth);
         const intercept = minPx - slope * minWidth;
 
@@ -42,12 +77,39 @@ document.addEventListener('DOMContentLoaded', function() {
         // Если slope очень маленький (меньше 0.001), используем упрощенную формулу
         if (Math.abs(slopeValue) < 0.001) {
             const unit = outputUnit === 'rem' ? 'rem' : 'px';
-            const avgValue = (minValue + maxValue) / 2;
-            return `${avgValue}${inputUnit}`;
+            let avgValue = (minValue + maxValue) / 2; // пока в inputUnit
+            // Конвертация среднего в единицы вывода
+            if (inputUnit !== outputUnit) {
+                if (inputUnit === 'px' && outputUnit === 'rem') avgValue = avgValue / 16;
+                if (inputUnit === 'rem' && outputUnit === 'px') avgValue = avgValue * 16;
+            }
+            if (enableRounding) avgValue = Math.round(avgValue * 1000) / 1000;
+            return `${avgValue}${unit}`;
         }
 
         const unit = outputUnit === 'rem' ? 'rem' : 'px';
-        return `clamp(${minValue}${inputUnit}, ${interceptValue}${unit} + ${slopeValue}${unit} * 100vw, ${maxValue}${inputUnit})`;
+        
+        // Конвертируем min и max значения в outputUnit если нужно
+        let minValueOutput = minValue;
+        let maxValueOutput = maxValue;
+        
+        if (inputUnit !== outputUnit) {
+            if (inputUnit === 'px' && outputUnit === 'rem') {
+                minValueOutput = minValue / 16;
+                maxValueOutput = maxValue / 16;
+            } else if (inputUnit === 'rem' && outputUnit === 'px') {
+                minValueOutput = minValue * 16;
+                maxValueOutput = maxValue * 16;
+            }
+        }
+        
+        // Применяем округление к min и max значениям если включено
+        if (enableRounding) {
+            minValueOutput = Math.round(minValueOutput * 1000) / 1000;
+            maxValueOutput = Math.round(maxValueOutput * 1000) / 1000;
+        }
+        
+        return `clamp(${minValueOutput}${unit}, ${interceptValue}${unit} + ${slopeValue}${unit} * 100vw, ${maxValueOutput}${unit})`;
     }
 
     // Функция для генерации CSS кода
@@ -71,30 +133,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let cssCode = '';
 
+        const spacingType = document.querySelector('input[name="spacingType"]:checked')?.value || 'padding';
+
         if (format === 'tailwind') {
-            // Генерация для Tailwind CSS - кастомные значения
-            if (minPadding !== 0 || maxPadding !== 0) {
+            // Генерация для Tailwind CSS
+            if (spacingType === 'padding' && (minPadding !== 0 || maxPadding !== 0)) {
                 const paddingClamp = calculateClamp(minPadding, maxPadding, minWidth, maxWidth, inputUnit, outputUnit, enableRounding);
-                
-                // Получаем выбранное направление для padding
-                const selectedPaddingDirection = document.querySelector('input[name="paddingDirection"]:checked').value;
-                
-                // Генерируем только выбранное направление
-                cssCode += `${selectedPaddingDirection}-[${paddingClamp}]\n`;
+                cssCode += `p-[${paddingClamp}]\n`;
             }
 
-            if (minMargin !== 0 || maxMargin !== 0) {
+            if (spacingType === 'margin' && (minMargin !== 0 || maxMargin !== 0)) {
                 const marginClamp = calculateClamp(minMargin, maxMargin, minWidth, maxWidth, inputUnit, outputUnit, enableRounding);
-                
-                // Получаем выбранное направление для margin
-                const selectedMarginDirection = document.querySelector('input[name="marginDirection"]:checked').value;
-                
-                // Генерируем только выбранное направление
-                cssCode += `${selectedMarginDirection}-[${marginClamp}]\n`;
+                cssCode += `m-[${marginClamp}]\n`;
             }
         } else {
             // Генерация для нативного CSS
-            if (minPadding !== 0 || maxPadding !== 0) {
+            if (spacingType === 'padding' && (minPadding !== 0 || maxPadding !== 0)) {
                 const paddingClamp = calculateClamp(minPadding, maxPadding, minWidth, maxWidth, inputUnit, outputUnit, enableRounding);
                 
                 // Если результат - простое значение (не clamp), генерируем только основной класс
@@ -102,12 +156,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     cssCode += `.adaptive-padding {\n  padding: ${paddingClamp};\n}\n\n`;
                 } else {
                     cssCode += `.adaptive-padding {\n  padding: ${paddingClamp};\n}\n\n`;
-                    cssCode += `.adaptive-padding-x {\n  padding-left: ${paddingClamp};\n  padding-right: ${paddingClamp};\n}\n\n`;
-                    cssCode += `.adaptive-padding-y {\n  padding-top: ${paddingClamp};\n  padding-bottom: ${paddingClamp};\n}\n\n`;
                 }
             }
 
-            if (minMargin !== 0 || maxMargin !== 0) {
+            if (spacingType === 'margin' && (minMargin !== 0 || maxMargin !== 0)) {
                 const marginClamp = calculateClamp(minMargin, maxMargin, minWidth, maxWidth, inputUnit, outputUnit, enableRounding);
                 
                 // Если результат - простое значение (не clamp), генерируем только основной класс
@@ -115,8 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     cssCode += `.adaptive-margin {\n  margin: ${marginClamp};\n}\n\n`;
                 } else {
                     cssCode += `.adaptive-margin {\n  margin: ${marginClamp};\n}\n\n`;
-                    cssCode += `.adaptive-margin-x {\n  margin-left: ${marginClamp};\n  margin-right: ${marginClamp};\n}\n\n`;
-                    cssCode += `.adaptive-margin-y {\n  margin-top: ${marginClamp};\n  margin-bottom: ${marginClamp};\n}\n\n`;
                 }
             }
         }
@@ -143,12 +193,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     roundingCheckbox.addEventListener('change', generateCode);
 
-    paddingDirectionRadios.forEach(radio => {
-        radio.addEventListener('change', generateCode);
-    });
-
-    marginDirectionRadios.forEach(radio => {
-        radio.addEventListener('change', generateCode);
+    spacingTypeRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            toggleFields();
+            generateCode();
+        });
     });
 
     // Копирование в буфер обмена
@@ -163,6 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Генерация при загрузке страницы
+    // Инициализация при загрузке страницы
+    toggleFields();
     generateCode();
 });
