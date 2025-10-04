@@ -112,7 +112,7 @@ section {
 
 .container {
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     background: white;
     padding: 2rem;
@@ -343,4 +343,66 @@ code.copied::after {
 
 .made-by a:hover {
     text-decoration: underline;
+}
+
+/* Стили для таблиц с иконками html */
+.icons-table {
+  width: 100%;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  background: #fff;
+  overflow: hidden;
+}
+
+.icons-table thead th {
+  background: #bebebe;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.icons-table tbody td {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  vertical-align: middle;
+  transition: background-color 0.2s ease;
+}
+
+ 
+
+.icons-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+ 
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .icons-table {
+    font-size: 0.8rem;
+  }
+  
+  .icons-table tbody td {
+    padding: 0.5rem;
+  }
+  
+  .icons-table thead th {
+    padding: 0.75rem 0.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .icons-table {
+    font-size: 0.7rem;
+  }
+  
+  .icons-table tbody td {
+    padding: 0.4rem 0.3rem;
+  }
 }
