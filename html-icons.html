@@ -3,687 +3,639 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTML Иконки и Коды</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: 'Arial', sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        padding: 20px;
-        color: #333;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        overflow: hidden;
-      }
-
-      h1 {
-        text-align: center;
-        padding: 30px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        font-size: 2.5rem;
-        font-weight: 700;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        margin: 0;
-      }
-
-      .section-title {
-        background: #f8f9fa;
-        padding: 15px 20px;
-        font-weight: 600;
-        font-size: 1.1rem;
-        color: #495057;
-        border-left: 4px solid #667eea;
-        margin: 0;
-        border-bottom: 1px solid #e9ecef;
-      }
-
-      .icons-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 0;
-        background: white;
-      }
-
-      .icons-table td {
-        padding: 15px 20px;
-        border: 1px solid #e9ecef;
-        vertical-align: top;
-        line-height: 1.8;
-        transition: background-color 0.2s ease;
-        width: 20%;
-      }
-
-      .icons-table td:hover {
-        background-color: #f8f9fa;
-      }
-
-      .code {
-        font-family: 'Courier New', monospace;
-        background: #f1f3f4;
-        padding: 3px 8px;
-        border-radius: 4px;
-        font-size: 0.85rem;
-        color: #d63384;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        display: inline-block;
-        margin-right: 10px;
-        min-width: 80px;
-        text-align: center;
-      }
-
-      .code:hover {
-        background: #e9ecef;
-        transform: translateY(-1px);
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      }
-
-      .icon-symbol {
-        font-size: 1.4rem;
-        margin-left: 5px;
-        display: inline-block;
-        vertical-align: middle;
-      }
-
-      .icon-row {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-        padding: 5px 0;
-        border-bottom: 1px solid #f8f9fa;
-      }
-
-      .icon-row:last-child {
-        margin-bottom: 0;
-        border-bottom: none;
-      }
-
-      /* Responsive design */
-      @media (max-width: 768px) {
-        body {
-          padding: 10px;
-        }
-
-        h1 {
-          font-size: 2rem;
-          padding: 20px;
-        }
-
-        .icons-table td {
-          padding: 10px 15px;
-          font-size: 0.9rem;
-          width: 50%;
-        }
-
-        .code {
-          font-size: 0.75rem;
-          padding: 2px 6px;
-          min-width: 70px;
-        }
-
-        .icon-symbol {
-          font-size: 1.2rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .icons-table td {
-          width: 100%;
-          display: block;
-        }
-      }
-
-      /* Toast notification */
-      .toast {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #28a745;
-        color: white;
-        padding: 12px 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        transform: translateX(400px);
-        transition: transform 0.3s ease;
-        z-index: 1000;
-        font-weight: 500;
-      }
-
-      .toast.show {
-        transform: translateX(0);
-      }
-
-      .content-wrapper {
-        padding: 0;
-      }
-    </style>
+    <title>HTML Icons - Коды символов</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <header>
+      <div class="nav-menu-pages">
+        <a class="nav-menu-pages-item" href="index.html">Home</a>
+        <a class="nav-menu-pages-item" href="unit-сonverter.html">Unit Converter</a>
+        <a class="nav-menu-pages-item" href="clamp-generator.html">Clamp Generator - font</a>
+        <a class="nav-menu-pages-item" href="padding-margin--generator.html">Padding & Margin Generator</a>
+        <a class="nav-menu-pages-item" href="html-icons.html">Html Icons</a>
+      </div>
+    </header>
+    
+    <section>
       <div class="container">
-      <h1>HTML Иконки и Коды</h1>
+        <h1>HTML Icons</h1>
 
-      <div class="content-wrapper">
         <!-- Основные символы -->
-        <div class="section-title">Основные символы и валюты</div>
         <table class="icons-table">
+          <thead>
+            <tr>
+              <th colspan="4">Основные символы (169-8999)</th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#169;')">&amp;#169;</span>
-                  <span class="icon-symbol">©</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#174;')">&amp;#174;</span>
-                  <span class="icon-symbol">®</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#176;')">&amp;#176;</span>
-                  <span class="icon-symbol">°</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#177;')">&amp;#177;</span>
-                  <span class="icon-symbol">±</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#189;')">&amp;#189;</span>
-                  <span class="icon-symbol">½</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8364;')">&amp;#8364;</span>
-                  <span class="icon-symbol">€</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8381;')">&amp;#8381;</span>
-                  <span class="icon-symbol">₽</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#36;')">&amp;#36;</span>
-                  <span class="icon-symbol">$</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#163;')">&amp;#163;</span>
-                  <span class="icon-symbol">£</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#165;')">&amp;#165;</span>
-                  <span class="icon-symbol">¥</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8592;')">&amp;#8592;</span>
-                  <span class="icon-symbol">←</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8593;')">&amp;#8593;</span>
-                  <span class="icon-symbol">↑</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8594;')">&amp;#8594;</span>
-                  <span class="icon-symbol">→</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8595;')">&amp;#8595;</span>
-                  <span class="icon-symbol">↓</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8596;')">&amp;#8596;</span>
-                  <span class="icon-symbol">↔</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8734;')">&amp;#8734;</span>
-                  <span class="icon-symbol">∞</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8730;')">&amp;#8730;</span>
-                  <span class="icon-symbol">√</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8804;')">&amp;#8804;</span>
-                  <span class="icon-symbol">≤</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8805;')">&amp;#8805;</span>
-                  <span class="icon-symbol">≥</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8800;')">&amp;#8800;</span>
-                  <span class="icon-symbol">≠</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9733;')">&amp;#9733;</span>
-                  <span class="icon-symbol">★</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9734;')">&amp;#9734;</span>
-                  <span class="icon-symbol">☆</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9829;')">&amp;#9829;</span>
-                  <span class="icon-symbol">♥</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9824;')">&amp;#9824;</span>
-                  <span class="icon-symbol">♠</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9827;')">&amp;#9827;</span>
-                  <span class="icon-symbol">♣</span>
-                </div>
-              </td>
+              <td>&amp;#169; ©</td>
+              <td>&amp;#174; ®</td>
+              <td>&amp;#176; °</td>
+              <td>&amp;#177; ±</td>
+            </tr>
+            <tr>
+              <td>&amp;#189; ½</td>
+              <td>&amp;#8364; €</td>
+              <td>&amp;#8381; ₽</td>
+              <td>&amp;#36; $</td>
+            </tr>
+            <tr>
+              <td>&amp;#163; £</td>
+              <td>&amp;#165; ¥</td>
+              <td>&amp;#1122; Ѣ</td>
+              <td>&amp;#8734; ∞</td>
             </tr>
           </tbody>
         </table>
 
-        <!-- Эмодзи и современные символы -->
-        <div class="section-title">Эмодзи и современные символы</div>
+        <!-- Стрелки -->
         <table class="icons-table">
+          <thead>
+            <tr>
+              <th colspan="4">Стрелки (8592-8682)</th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128512;')">&amp;#128512;</span>
-                  <span class="icon-symbol">😀</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128513;')">&amp;#128513;</span>
-                  <span class="icon-symbol">😁</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128514;')">&amp;#128514;</span>
-                  <span class="icon-symbol">😂</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128525;')">&amp;#128525;</span>
-                  <span class="icon-symbol">😍</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128578;')">&amp;#128578;</span>
-                  <span class="icon-symbol">🙂</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#127744;')">&amp;#127744;</span>
-                  <span class="icon-symbol">🌀</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#127752;')">&amp;#127752;</span>
-                  <span class="icon-symbol">🌈</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#127774;')">&amp;#127774;</span>
-                  <span class="icon-symbol">🌞</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#127769;')">&amp;#127769;</span>
-                  <span class="icon-symbol">🌙</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#127775;')">&amp;#127775;</span>
-                  <span class="icon-symbol">🌟</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128640;')">&amp;#128640;</span>
-                  <span class="icon-symbol">🚀</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128293;')">&amp;#128293;</span>
-                  <span class="icon-symbol">🔥</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128161;')">&amp;#128161;</span>
-                  <span class="icon-symbol">💡</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128170;')">&amp;#128170;</span>
-                  <span class="icon-symbol">💪</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128077;')">&amp;#128077;</span>
-                  <span class="icon-symbol">👍</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#127828;')">&amp;#127828;</span>
-                  <span class="icon-symbol">🍔</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#127829;')">&amp;#127829;</span>
-                  <span class="icon-symbol">🍕</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#127866;')">&amp;#127866;</span>
-                  <span class="icon-symbol">🍺</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#127874;')">&amp;#127874;</span>
-                  <span class="icon-symbol">🎂</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#127873;')">&amp;#127873;</span>
-                  <span class="icon-symbol">🎁</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128049;')">&amp;#128049;</span>
-                  <span class="icon-symbol">🐱</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128054;')">&amp;#128054;</span>
-                  <span class="icon-symbol">🐶</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128059;')">&amp;#128059;</span>
-                  <span class="icon-symbol">🐻</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128060;')">&amp;#128060;</span>
-                  <span class="icon-symbol">🐼</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#129412;')">&amp;#129412;</span>
-                  <span class="icon-symbol">🦄</span>
-                </div>
-              </td>
+              <td>&amp;#8592; ←</td>
+              <td>&amp;#8593; ↑</td>
+              <td>&amp;#8594; →</td>
+              <td>&amp;#8595; ↓</td>
+            </tr>
+            <tr>
+              <td>&amp;#8596; ↔</td>
+              <td>&amp;#8597; ↕</td>
+              <td>&amp;#8598; ↖</td>
+              <td>&amp;#8599; ↗</td>
+            </tr>
+            <tr>
+              <td>&amp;#8600; ↘</td>
+              <td>&amp;#8601; ↙</td>
+              <td>&amp;#8656; ⇐</td>
+              <td>&amp;#8658; ⇒</td>
+            </tr>
+            <tr>
+              <td>&amp;#8660; ⇔</td>
+              <td>&amp;#8678; ⇦</td>
+              <td>&amp;#8680; ⇨</td>
+              <td>&amp;#8682; ⇪</td>
             </tr>
           </tbody>
         </table>
 
-        <!-- Римские цифры -->
-        <div class="section-title">Римские цифры</div>
+        <!-- Математические символы -->
         <table class="icons-table">
+          <thead>
+            <tr>
+              <th colspan="4">Математические символы (8704-8999)</th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8544;')">&amp;#8544;</span>
-                  <span class="icon-symbol">Ⅰ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8545;')">&amp;#8545;</span>
-                  <span class="icon-symbol">Ⅱ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8546;')">&amp;#8546;</span>
-                  <span class="icon-symbol">Ⅲ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8547;')">&amp;#8547;</span>
-                  <span class="icon-symbol">Ⅳ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8548;')">&amp;#8548;</span>
-                  <span class="icon-symbol">Ⅴ</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8549;')">&amp;#8549;</span>
-                  <span class="icon-symbol">Ⅵ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8550;')">&amp;#8550;</span>
-                  <span class="icon-symbol">Ⅶ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8551;')">&amp;#8551;</span>
-                  <span class="icon-symbol">Ⅷ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8552;')">&amp;#8552;</span>
-                  <span class="icon-symbol">Ⅸ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8553;')">&amp;#8553;</span>
-                  <span class="icon-symbol">Ⅹ</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8560;')">&amp;#8560;</span>
-                  <span class="icon-symbol">ⅰ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8561;')">&amp;#8561;</span>
-                  <span class="icon-symbol">ⅱ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8562;')">&amp;#8562;</span>
-                  <span class="icon-symbol">ⅲ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8563;')">&amp;#8563;</span>
-                  <span class="icon-symbol">ⅳ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#8564;')">&amp;#8564;</span>
-                  <span class="icon-symbol">ⅴ</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9312;')">&amp;#9312;</span>
-                  <span class="icon-symbol">①</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9313;')">&amp;#9313;</span>
-                  <span class="icon-symbol">②</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9314;')">&amp;#9314;</span>
-                  <span class="icon-symbol">③</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9315;')">&amp;#9315;</span>
-                  <span class="icon-symbol">④</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9316;')">&amp;#9316;</span>
-                  <span class="icon-symbol">⑤</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9398;')">&amp;#9398;</span>
-                  <span class="icon-symbol">Ⓐ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9399;')">&amp;#9399;</span>
-                  <span class="icon-symbol">Ⓑ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9400;')">&amp;#9400;</span>
-                  <span class="icon-symbol">Ⓒ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9401;')">&amp;#9401;</span>
-                  <span class="icon-symbol">Ⓓ</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9402;')">&amp;#9402;</span>
-                  <span class="icon-symbol">Ⓔ</span>
-                </div>
-              </td>
+              <td>&amp;#8704; ∀</td>
+              <td>&amp;#8706; ∂</td>
+              <td>&amp;#8707; ∃</td>
+              <td>&amp;#8709; ∅</td>
+            </tr>
+            <tr>
+              <td>&amp;#8712; ∈</td>
+              <td>&amp;#8715; ∋</td>
+              <td>&amp;#8719; ∏</td>
+              <td>&amp;#8721; ∑</td>
+            </tr>
+            <tr>
+              <td>&amp;#8722; −</td>
+              <td>&amp;#8730; √</td>
+              <td>&amp;#8734; ∞</td>
+              <td>&amp;#8736; ∠</td>
+            </tr>
+            <tr>
+              <td>&amp;#8743; ∧</td>
+              <td>&amp;#8744; ∨</td>
+              <td>&amp;#8745; ∩</td>
+              <td>&amp;#8746; ∪</td>
+            </tr>
+            <tr>
+              <td>&amp;#8747; ∫</td>
+              <td>&amp;#8764; ∼</td>
+              <td>&amp;#8773; ≅</td>
+              <td>&amp;#8776; ≈</td>
+            </tr>
+            <tr>
+              <td>&amp;#8800; ≠</td>
+              <td>&amp;#8801; ≡</td>
+              <td>&amp;#8804; ≤</td>
+              <td>&amp;#8805; ≥</td>
             </tr>
           </tbody>
         </table>
 
         <!-- Геометрические фигуры -->
-        <div class="section-title">Геометрические фигуры</div>
         <table class="icons-table">
+          <thead>
+            <tr>
+              <th colspan="4">Геометрические фигуры (9634-9753)</th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9650;')">&amp;#9650;</span>
-                  <span class="icon-symbol">▲</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9660;')">&amp;#9660;</span>
-                  <span class="icon-symbol">▼</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9664;')">&amp;#9664;</span>
-                  <span class="icon-symbol">◀</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9654;')">&amp;#9654;</span>
-                  <span class="icon-symbol">▶</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9670;')">&amp;#9670;</span>
-                  <span class="icon-symbol">◆</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9679;')">&amp;#9679;</span>
-                  <span class="icon-symbol">●</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9675;')">&amp;#9675;</span>
-                  <span class="icon-symbol">○</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9642;')">&amp;#9642;</span>
-                  <span class="icon-symbol">▪</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9643;')">&amp;#9643;</span>
-                  <span class="icon-symbol">▫</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9724;')">&amp;#9724;</span>
-                  <span class="icon-symbol">◼</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128308;')">&amp;#128308;</span>
-                  <span class="icon-symbol">🔴</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128309;')">&amp;#128309;</span>
-                  <span class="icon-symbol">🔵</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128310;')">&amp;#128310;</span>
-                  <span class="icon-symbol">🔶</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128311;')">&amp;#128311;</span>
-                  <span class="icon-symbol">🔷</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128314;')">&amp;#128314;</span>
-                  <span class="icon-symbol">🔺</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#10003;')">&amp;#10003;</span>
-                  <span class="icon-symbol">✓</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#10004;')">&amp;#10004;</span>
-                  <span class="icon-symbol">✔</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#10006;')">&amp;#10006;</span>
-                  <span class="icon-symbol">✖</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#10060;')">&amp;#10060;</span>
-                  <span class="icon-symbol">❌</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#9989;')">&amp;#9989;</span>
-                  <span class="icon-symbol">✅</span>
-                </div>
-              </td>
-              <td>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#10084;')">&amp;#10084;</span>
-                  <span class="icon-symbol">❤</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128153;')">&amp;#128153;</span>
-                  <span class="icon-symbol">💙</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128154;')">&amp;#128154;</span>
-                  <span class="icon-symbol">💚</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128155;')">&amp;#128155;</span>
-                  <span class="icon-symbol">💛</span>
-                </div>
-                <div class="icon-row">
-                  <span class="code" onclick="copyToClipboard('&amp;#128156;')">&amp;#128156;</span>
-                  <span class="icon-symbol">💜</span>
-                </div>
-              </td>
+              <td>&amp;#9634; ▢</td>
+              <td>&amp;#9642; ▪</td>
+              <td>&amp;#9643; ▫</td>
+              <td>&amp;#9650; ▲</td>
+            </tr>
+            <tr>
+              <td>&amp;#9651; △</td>
+              <td>&amp;#9654; ▶</td>
+              <td>&amp;#9658; ►</td>
+              <td>&amp;#9660; ▼</td>
+            </tr>
+            <tr>
+              <td>&amp;#9661; ▽</td>
+              <td>&amp;#9664; ◀</td>
+              <td>&amp;#9668; ◄</td>
+              <td>&amp;#9670; ◆</td>
+            </tr>
+            <tr>
+              <td>&amp;#9671; ◇</td>
+              <td>&amp;#9675; ○</td>
+              <td>&amp;#9679; ●</td>
+              <td>&amp;#9733; ★</td>
+            </tr>
+            <tr>
+              <td>&amp;#9734; ☆</td>
+              <td>&amp;#9742; ☎</td>
+              <td>&amp;#9745; ☑</td>
+              <td>&amp;#9746; ☒</td>
             </tr>
           </tbody>
         </table>
+
+        <!-- Цифры в кружках -->
+        <table class="icons-table">
+          <thead>
+            <tr>
+              <th colspan="4">Цифры в кружках (9312-9331)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&amp;#9312; ①</td>
+              <td>&amp;#9313; ②</td>
+              <td>&amp;#9314; ③</td>
+              <td>&amp;#9315; ④</td>
+            </tr>
+            <tr>
+              <td>&amp;#9316; ⑤</td>
+              <td>&amp;#9317; ⑥</td>
+              <td>&amp;#9318; ⑦</td>
+              <td>&amp;#9319; ⑧</td>
+            </tr>
+            <tr>
+              <td>&amp;#9320; ⑨</td>
+              <td>&amp;#9321; ⑩</td>
+              <td>&amp;#9322; ⑪</td>
+              <td>&amp;#9323; ⑫</td>
+            </tr>
+            <tr>
+              <td>&amp;#9324; ⑬</td>
+              <td>&amp;#9325; ⑭</td>
+              <td>&amp;#9326; ⑮</td>
+              <td>&amp;#9327; ⑯</td>
+            </tr>
+            <tr>
+              <td>&amp;#9328; ⑰</td>
+              <td>&amp;#9329; ⑱</td>
+              <td>&amp;#9330; ⑲</td>
+              <td>&amp;#9331; ⑳</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Римские цифры -->
+        <table class="icons-table">
+          <thead>
+            <tr>
+              <th colspan="4">Римские цифры (8544-8575)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&amp;#8544; Ⅰ</td>
+              <td>&amp;#8545; Ⅱ</td>
+              <td>&amp;#8546; Ⅲ</td>
+              <td>&amp;#8547; Ⅳ</td>
+            </tr>
+            <tr>
+              <td>&amp;#8548; Ⅴ</td>
+              <td>&amp;#8549; Ⅵ</td>
+              <td>&amp;#8550; Ⅶ</td>
+              <td>&amp;#8551; Ⅷ</td>
+            </tr>
+            <tr>
+              <td>&amp;#8552; Ⅸ</td>
+              <td>&amp;#8553; Ⅹ</td>
+              <td>&amp;#8554; Ⅺ</td>
+              <td>&amp;#8555; Ⅻ</td>
+            </tr>
+            <tr>
+              <td>&amp;#8556; Ⅼ</td>
+              <td>&amp;#8557; Ⅽ</td>
+              <td>&amp;#8558; Ⅾ</td>
+              <td>&amp;#8559; Ⅿ</td>
+            </tr>
+            <tr>
+              <td>&amp;#8560; ⅰ</td>
+              <td>&amp;#8561; ⅱ</td>
+              <td>&amp;#8562; ⅲ</td>
+              <td>&amp;#8563; ⅳ</td>
+            </tr>
+            <tr>
+              <td>&amp;#8564; ⅴ</td>
+              <td>&amp;#8565; ⅵ</td>
+              <td>&amp;#8566; ⅶ</td>
+              <td>&amp;#8567; ⅷ</td>
+            </tr>
+            <tr>
+              <td>&amp;#8568; ⅸ</td>
+              <td>&amp;#8569; ⅹ</td>
+              <td>&amp;#8570; ⅺ</td>
+              <td>&amp;#8571; ⅻ</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Эмодзи природа -->
+        <table class="icons-table">
+          <thead>
+            <tr>
+              <th colspan="4">Природа и погода (127744-127999)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&amp;#127744; 🌀</td>
+              <td>&amp;#127745; 🌁</td>
+              <td>&amp;#127746; 🌂</td>
+              <td>&amp;#127747; 🌃</td>
+            </tr>
+            <tr>
+              <td>&amp;#127748; 🌄</td>
+              <td>&amp;#127749; 🌅</td>
+              <td>&amp;#127750; 🌆</td>
+              <td>&amp;#127751; 🌇</td>
+            </tr>
+            <tr>
+              <td>&amp;#127752; 🌈</td>
+              <td>&amp;#127753; 🌉</td>
+              <td>&amp;#127754; 🌊</td>
+              <td>&amp;#127755; 🌋</td>
+            </tr>
+            <tr>
+              <td>&amp;#127756; 🌌</td>
+              <td>&amp;#127757; 🌍</td>
+              <td>&amp;#127758; 🌎</td>
+              <td>&amp;#127759; 🌏</td>
+            </tr>
+            <tr>
+              <td>&amp;#127760; 🌐</td>
+              <td>&amp;#127761; 🌑</td>
+              <td>&amp;#127762; 🌒</td>
+              <td>&amp;#127763; 🌓</td>
+            </tr>
+            <tr>
+              <td>&amp;#127764; 🌔</td>
+              <td>&amp;#127765; 🌕</td>
+              <td>&amp;#127766; 🌖</td>
+              <td>&amp;#127767; 🌗</td>
+            </tr>
+            <tr>
+              <td>&amp;#127768; 🌘</td>
+              <td>&amp;#127769; 🌙</td>
+              <td>&amp;#127770; 🌚</td>
+              <td>&amp;#127771; 🌛</td>
+            </tr>
+            <tr>
+              <td>&amp;#127772; 🌜</td>
+              <td>&amp;#127773; 🌝</td>
+              <td>&amp;#127774; 🌞</td>
+              <td>&amp;#127775; 🌟</td>
+            </tr>
+            <tr>
+              <td>&amp;#127776; 🌠</td>
+              <td>&amp;#127777; 🌡</td>
+              <td>&amp;#127793; 🌱</td>
+              <td>&amp;#127794; 🌲</td>
+            </tr>
+            <tr>
+              <td>&amp;#127795; 🌳</td>
+              <td>&amp;#127796; 🌴</td>
+              <td>&amp;#127797; 🌵</td>
+              <td>&amp;#127799; 🌷</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Эмодзи еда -->
+        <table class="icons-table">
+          <thead>
+            <tr>
+              <th colspan="4">Еда и напитки (127800-127891)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&amp;#127800; 🌸</td>
+              <td>&amp;#127801; 🌹</td>
+              <td>&amp;#127802; 🌺</td>
+              <td>&amp;#127803; 🌻</td>
+            </tr>
+            <tr>
+              <td>&amp;#127804; 🌼</td>
+              <td>&amp;#127805; 🌽</td>
+              <td>&amp;#127806; 🌾</td>
+              <td>&amp;#127807; 🌿</td>
+            </tr>
+            <tr>
+              <td>&amp;#127808; 🍀</td>
+              <td>&amp;#127809; 🍁</td>
+              <td>&amp;#127810; 🍂</td>
+              <td>&amp;#127811; 🍃</td>
+            </tr>
+            <tr>
+              <td>&amp;#127812; 🍄</td>
+              <td>&amp;#127813; 🍅</td>
+              <td>&amp;#127814; 🍆</td>
+              <td>&amp;#127815; 🍇</td>
+            </tr>
+            <tr>
+              <td>&amp;#127816; 🍈</td>
+              <td>&amp;#127817; 🍉</td>
+              <td>&amp;#127818; 🍊</td>
+              <td>&amp;#127819; 🍋</td>
+            </tr>
+            <tr>
+              <td>&amp;#127820; 🍌</td>
+              <td>&amp;#127821; 🍍</td>
+              <td>&amp;#127822; 🍎</td>
+              <td>&amp;#127823; 🍏</td>
+            </tr>
+            <tr>
+              <td>&amp;#127824; 🍐</td>
+              <td>&amp;#127825; 🍑</td>
+              <td>&amp;#127826; 🍒</td>
+              <td>&amp;#127827; 🍓</td>
+            </tr>
+            <tr>
+              <td>&amp;#127828; 🍔</td>
+              <td>&amp;#127829; 🍕</td>
+              <td>&amp;#127830; 🍖</td>
+              <td>&amp;#127831; 🍗</td>
+            </tr>
+            <tr>
+              <td>&amp;#127860; 🍴</td>
+              <td>&amp;#127861; 🍵</td>
+              <td>&amp;#127862; 🍶</td>
+              <td>&amp;#127863; 🍷</td>
+            </tr>
+            <tr>
+              <td>&amp;#127864; 🍸</td>
+              <td>&amp;#127865; 🍹</td>
+              <td>&amp;#127866; 🍺</td>
+              <td>&amp;#127867; 🍻</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Смайлики -->
+        <table class="icons-table">
+          <thead>
+            <tr>
+              <th colspan="4">Смайлики и эмоции (128512-128591)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&amp;#128512; 😀</td>
+              <td>&amp;#128513; 😁</td>
+              <td>&amp;#128514; 😂</td>
+              <td>&amp;#128515; 😃</td>
+            </tr>
+            <tr>
+              <td>&amp;#128516; 😄</td>
+              <td>&amp;#128517; 😅</td>
+              <td>&amp;#128518; 😆</td>
+              <td>&amp;#128519; 😇</td>
+            </tr>
+            <tr>
+              <td>&amp;#128520; 😈</td>
+              <td>&amp;#128521; 😉</td>
+              <td>&amp;#128522; 😊</td>
+              <td>&amp;#128523; 😋</td>
+            </tr>
+            <tr>
+              <td>&amp;#128524; 😌</td>
+              <td>&amp;#128525; 😍</td>
+              <td>&amp;#128526; 😎</td>
+              <td>&amp;#128527; 😏</td>
+            </tr>
+            <tr>
+              <td>&amp;#128528; 😐</td>
+              <td>&amp;#128529; 😑</td>
+              <td>&amp;#128530; 😒</td>
+              <td>&amp;#128531; 😓</td>
+            </tr>
+            <tr>
+              <td>&amp;#128532; 😔</td>
+              <td>&amp;#128533; 😕</td>
+              <td>&amp;#128534; 😖</td>
+              <td>&amp;#128535; 😗</td>
+            </tr>
+            <tr>
+              <td>&amp;#128536; 😘</td>
+              <td>&amp;#128537; 😙</td>
+              <td>&amp;#128538; 😚</td>
+              <td>&amp;#128539; 😛</td>
+            </tr>
+            <tr>
+              <td>&amp;#128540; 😜</td>
+              <td>&amp;#128541; 😝</td>
+              <td>&amp;#128542; 😞</td>
+              <td>&amp;#128543; 😟</td>
+            </tr>
+            <tr>
+              <td>&amp;#128544; 😠</td>
+              <td>&amp;#128545; 😡</td>
+              <td>&amp;#128546; 😢</td>
+              <td>&amp;#128547; 😣</td>
+            </tr>
+            <tr>
+              <td>&amp;#128548; 😤</td>
+              <td>&amp;#128549; 😥</td>
+              <td>&amp;#128550; 😦</td>
+              <td>&amp;#128551; 😧</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Животные -->
+        <table class="icons-table">
+          <thead>
+            <tr>
+              <th colspan="4">Животные (128012-128099)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&amp;#128012; 🐌</td>
+              <td>&amp;#128013; 🐍</td>
+              <td>&amp;#128014; 🐎</td>
+              <td>&amp;#128015; 🐏</td>
+            </tr>
+            <tr>
+              <td>&amp;#128016; 🐐</td>
+              <td>&amp;#128017; 🐑</td>
+              <td>&amp;#128018; 🐒</td>
+              <td>&amp;#128019; 🐓</td>
+            </tr>
+            <tr>
+              <td>&amp;#128020; 🐔</td>
+              <td>&amp;#128021; 🐕</td>
+              <td>&amp;#128022; 🐖</td>
+              <td>&amp;#128023; 🐗</td>
+            </tr>
+            <tr>
+              <td>&amp;#128024; 🐘</td>
+              <td>&amp;#128025; 🐙</td>
+              <td>&amp;#128026; 🐚</td>
+              <td>&amp;#128027; 🐛</td>
+            </tr>
+            <tr>
+              <td>&amp;#128028; 🐜</td>
+              <td>&amp;#128029; 🐝</td>
+              <td>&amp;#128030; 🐞</td>
+              <td>&amp;#128031; 🐟</td>
+            </tr>
+            <tr>
+              <td>&amp;#128032; 🐠</td>
+              <td>&amp;#128033; 🐡</td>
+              <td>&amp;#128034; 🐢</td>
+              <td>&amp;#128035; 🐣</td>
+            </tr>
+            <tr>
+              <td>&amp;#128036; 🐤</td>
+              <td>&amp;#128037; 🐥</td>
+              <td>&amp;#128038; 🐦</td>
+              <td>&amp;#128039; 🐧</td>
+            </tr>
+            <tr>
+              <td>&amp;#128040; 🐨</td>
+              <td>&amp;#128041; 🐩</td>
+              <td>&amp;#128042; 🐪</td>
+              <td>&amp;#128043; 🐫</td>
+            </tr>
+            <tr>
+              <td>&amp;#128044; 🐬</td>
+              <td>&amp;#128045; 🐭</td>
+              <td>&amp;#128046; 🐮</td>
+              <td>&amp;#128047; 🐯</td>
+            </tr>
+            <tr>
+              <td>&amp;#128048; 🐰</td>
+              <td>&amp;#128049; 🐱</td>
+              <td>&amp;#128050; 🐲</td>
+              <td>&amp;#128051; 🐳</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Транспорт -->
+        <table class="icons-table">
+          <thead>
+            <tr>
+              <th colspan="4">Транспорт (128640-128758)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&amp;#128640; 🚀</td>
+              <td>&amp;#128641; 🚁</td>
+              <td>&amp;#128642; 🚂</td>
+              <td>&amp;#128643; 🚃</td>
+            </tr>
+            <tr>
+              <td>&amp;#128644; 🚄</td>
+              <td>&amp;#128645; 🚅</td>
+              <td>&amp;#128646; 🚆</td>
+              <td>&amp;#128647; 🚇</td>
+            </tr>
+            <tr>
+              <td>&amp;#128648; 🚈</td>
+              <td>&amp;#128649; 🚉</td>
+              <td>&amp;#128650; 🚊</td>
+              <td>&amp;#128651; 🚋</td>
+            </tr>
+            <tr>
+              <td>&amp;#128652; 🚌</td>
+              <td>&amp;#128653; 🚍</td>
+              <td>&amp;#128654; 🚎</td>
+              <td>&amp;#128655; 🚏</td>
+            </tr>
+            <tr>
+              <td>&amp;#128656; 🚐</td>
+              <td>&amp;#128657; 🚑</td>
+              <td>&amp;#128658; 🚒</td>
+              <td>&amp;#128659; 🚓</td>
+            </tr>
+            <tr>
+              <td>&amp;#128660; 🚔</td>
+              <td>&amp;#128661; 🚕</td>
+              <td>&amp;#128662; 🚖</td>
+              <td>&amp;#128663; 🚗</td>
+            </tr>
+            <tr>
+              <td>&amp;#128664; 🚘</td>
+              <td>&amp;#128665; 🚙</td>
+              <td>&amp;#128666; 🚚</td>
+              <td>&amp;#128667; 🚛</td>
+            </tr>
+            <tr>
+              <td>&amp;#128668; 🚜</td>
+              <td>&amp;#128669; 🚝</td>
+              <td>&amp;#128670; 🚞</td>
+              <td>&amp;#128671; 🚟</td>
+            </tr>
+            <tr>
+              <td>&amp;#128672; 🚠</td>
+              <td>&amp;#128673; 🚡</td>
+              <td>&amp;#128674; 🚢</td>
+              <td>&amp;#128675; 🚣</td>
+            </tr>
+            <tr>
+              <td>&amp;#128676; 🚤</td>
+              <td>&amp;#128690; 🚲</td>
+              <td>&amp;#128756; 🛴</td>
+              <td>&amp;#128758; 🛶</td>
+            </tr>
+          </tbody>
+        </table>
+
       </div>
-
-      <div class="toast" id="toast">Код скопирован в буфер обмена!</div>
+    </section>
+    
+    <div class="made-by">
+      <p>
+        Made by
+        <a href="https://github.com/EvgenyDibrovsky" target="_blank">Evgeny Dibrovsky</a>
+      </p>
     </div>
-
-    <script>
-      function copyToClipboard(code) {
-        navigator.clipboard.writeText(code).then(function() {
-          showToast();
-        }).catch(function(err) {
-          console.error('Ошибка копирования: ', err);
-        });
-      }
-
-      function showToast() {
-        const toast = document.getElementById('toast');
-        toast.classList.add('show');
-        setTimeout(function() {
-          toast.classList.remove('show');
-        }, 2000);
-      }
-
-      // Добавляем обработчик клика для всех кодов
-      document.addEventListener('DOMContentLoaded', function() {
-        const codes = document.querySelectorAll('.code');
-        codes.forEach(function(code) {
-          if (!code.hasAttribute('onclick')) {
-            const codeText = code.textContent;
-            code.setAttribute('onclick', `copyToClipboard('${codeText}')`);
-            code.style.cursor = 'pointer';
-          }
-        });
-      });
-    </script>
   </body>
 </html>
