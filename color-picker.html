@@ -27,9 +27,66 @@
     <section>
       <div class="container">
         <h1>Color Picker</h1>
-        <div class="color-picker">
-          <div class="color-picker-input">
-            <input type="color" id="color-picker-input" />
+        <div class="color-picker-wrapper">
+          <div class="color-picker-main">
+            <!-- Основная палитра цветов -->
+            <div class="color-palette">
+              <canvas id="colorCanvas" width="300" height="200"></canvas>
+              <div class="color-picker-cursor" id="colorCursor"></div>
+            </div>
+            
+            <!-- Слайдер оттенков -->
+            <div class="hue-slider">
+              <canvas id="hueCanvas" width="20" height="200"></canvas>
+              <div class="hue-cursor" id="hueCursor"></div>
+            </div>
+          </div>
+          
+          <!-- Отображение выбранного цвета -->
+          <div class="color-preview">
+            <div class="color-display" id="colorDisplay"></div>
+          </div>
+          
+          <!-- Color format fields -->
+          <div class="color-formats">
+            <div class="format-group">
+              <label>HEX</label>
+              <input type="text" id="hexInput" readonly />
+            </div>
+            
+            <div class="format-row">
+              <div class="format-group">
+                <label>RGB</label>
+                <div class="rgb-inputs">
+                  <input type="number" id="rInput" min="0" max="255" />
+                  <input type="number" id="gInput" min="0" max="255" />
+                  <input type="number" id="bInput" min="0" max="255" />
+                </div>
+              </div>
+            </div>
+            
+            <div class="format-row">
+              <div class="format-group">
+                <label>CMYK</label>
+                <div class="cmyk-display">
+                  <span id="cmykDisplay">0%, 0%, 0%, 0%</span>
+                </div>
+              </div>
+              
+              <div class="format-group">
+                <label>HSV</label>
+                <div class="hsv-display">
+                  <span id="hsvDisplay">0°, 0%, 0%</span>
+                </div>
+              </div>
+              
+              <div class="format-group">
+                <label>HSL</label>
+                <div class="hsl-display">
+                  <span id="hslDisplay">0°, 0%, 0%</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -37,5 +94,6 @@
     <div class="made-by">
       <p>Made by <a href="https://github.com/EvgenyDibrovsky" target="_blank">Evgeny Dibrovsky</a></p>
     </div>
+    <script src="js/color-picker.js"></script>
   </body>
 </html>
