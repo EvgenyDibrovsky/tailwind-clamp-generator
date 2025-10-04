@@ -520,17 +520,6 @@ code.copied::after {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-.rgb-inputs {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.rgb-inputs input[type="number"] {
-  flex: 1;
-  padding: 0.5rem;
-  text-align: center;
-  font-size: 0.875rem;
-}
 
 .format-row {
   display: flex;
@@ -541,6 +530,7 @@ code.copied::after {
   flex: 1;
 }
 
+.rgb-display,
 .cmyk-display,
 .hsv-display,
 .hsl-display {
@@ -597,7 +587,4 @@ code.copied::after {
     height: 20px;
   }
   
-  .rgb-inputs {
-    flex-direction: column;
-  }
 }

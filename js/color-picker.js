@@ -8,9 +8,7 @@ class ColorPicker {
         this.colorDisplay = document.getElementById('colorDisplay');
         
         this.hexInput = document.getElementById('hexInput');
-        this.rInput = document.getElementById('rInput');
-        this.gInput = document.getElementById('gInput');
-        this.bInput = document.getElementById('bInput');
+        this.rgbDisplay = document.getElementById('rgbDisplay');
         this.cmykDisplay = document.getElementById('cmykDisplay');
         this.hsvDisplay = document.getElementById('hsvDisplay');
         this.hslDisplay = document.getElementById('hslDisplay');
@@ -104,10 +102,6 @@ class ColorPicker {
             this.isDraggingHue = false;
         });
         
-        // События для RGB полей
-        this.rInput.addEventListener('input', () => this.updateFromRGB());
-        this.gInput.addEventListener('input', () => this.updateFromRGB());
-        this.bInput.addEventListener('input', () => this.updateFromRGB());
         
     }
     
@@ -163,39 +157,6 @@ class ColorPicker {
         this.updateColorFormats(rgb);
     }
     
-    updateFromRGB() {
-        const r = parseInt(this.rInput.value) || 0;
-        const g = parseInt(this.gInput.value) || 0;
-        const b = parseInt(this.bInput.value) || 0;
-        
-        // Ограничиваем значения
-        const clampedR = Math.max(0, Math.min(255, r));
-        const clampedG = Math.max(0, Math.min(255, g));
-        const clampedB = Math.max(0, Math.min(255, b));
-        
-        // Обновляем поля если значения были изменены
-        this.rInput.value = clampedR;
-        this.gInput.value = clampedG;
-        this.bInput.value = clampedB;
-        
-        // Конвертируем RGB в HSL
-        const hsl = this.rgbToHsl(clampedR, clampedG, clampedB);
-        this.currentHue = hsl.h;
-        this.currentSaturation = hsl.s;
-        this.currentLightness = hsl.l;
-        
-        // Обновляем курсоры
-        this.updateCursors();
-        
-        // Перерисовываем палитру
-        this.drawColorPalette();
-        
-        // Обновляем отображение
-        const rgb = { r: clampedR, g: clampedG, b: clampedB };
-        this.colorDisplay.style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
-        this.hexInput.value = this.rgbToHex(rgb.r, rgb.g, rgb.b);
-        this.updateColorFormats(rgb);
-    }
     
     updateCursors() {
         // Обновляем позицию курсора на палитре
@@ -211,9 +172,7 @@ class ColorPicker {
     
     updateInputs(rgb) {
         this.hexInput.value = this.rgbToHex(rgb.r, rgb.g, rgb.b);
-        this.rInput.value = rgb.r;
-        this.gInput.value = rgb.g;
-        this.bInput.value = rgb.b;
+        this.rgbDisplay.textContent = `${rgb.r}, ${rgb.g}, ${rgb.b}`;
     }
     
     updateColorFormats(rgb) {
@@ -235,30 +194,31 @@ class ColorPicker {
         s /= 100;
         l /= 100;
         
-        const c = (1 - Math.abs(2 * l - 1)) * s;
-        const x = c * (1 - Math.abs((h * 6) % 2 - 1));
-        const m = l - c / 2;
-        
         let r, g, b;
         
-        if (0 <= h && h < 1/6) {
-            r = c; g = x; b = 0;
-        } else if (1/6 <= h && h < 2/6) {
-            r = x; g = c; b = 0;
-        } else if (2/6 <= h && h < 3/6) {
-            r = 0; g = c; b = x;
-        } else if (3/6 <= h && h < 4/6) {
-            r = 0; g = x; b = c;
-        } else if (4/6 <= h && h < 5/6) {
-            r = x; g = 0; b = c;
+        if (s === 0) {
+            r = g = b = l; // achromatic
         } else {
-            r = c; g = 0; b = x;
+            const hue2rgb = (p, q, t) => {
+                if (t < 0) t += 1;
+                if (t > 1) t -= 1;
+                if (t < 1/6) return p + (q - p) * 6 * t;
+                if (t < 1/2) return q;
+                if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+                return p;
+            };
+            
+            const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+            const p = 2 * l - q;
+            r = hue2rgb(p, q, h + 1/3);
+            g = hue2rgb(p, q, h);
+            b = hue2rgb(p, q, h - 1/3);
         }
         
         return {
-            r: Math.round((r + m) * 255),
-            g: Math.round((g + m) * 255),
-            b: Math.round((b + m) * 255)
+            r: Math.round(r * 255),
+            g: Math.round(g * 255),
+            b: Math.round(b * 255)
         };
     }
     
@@ -293,14 +253,18 @@ class ColorPicker {
         }
         
         return {
-            h: h * 360,
-            s: s * 100,
-            l: l * 100
+            h: Math.round(h * 360),
+            s: Math.round(s * 100),
+            l: Math.round(l * 100)
         };
     }
     
     rgbToHex(r, g, b) {
-        return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+        const toHex = (n) => {
+            const hex = Math.round(n).toString(16);
+            return hex.length === 1 ? '0' + hex : hex;
+        };
+        return "#" + toHex(r) + toHex(g) + toHex(b);
     }
     
     rgbToCmyk(r, g, b) {
@@ -309,9 +273,14 @@ class ColorPicker {
         b /= 255;
         
         const k = 1 - Math.max(r, g, b);
-        const c = k === 1 ? 0 : (1 - r - k) / (1 - k);
-        const m = k === 1 ? 0 : (1 - g - k) / (1 - k);
-        const y = k === 1 ? 0 : (1 - b - k) / (1 - k);
+        
+        if (k === 1) {
+            return { c: 0, m: 0, y: 0, k: 100 };
+        }
+        
+        const c = (1 - r - k) / (1 - k);
+        const m = (1 - g - k) / (1 - k);
+        const y = (1 - b - k) / (1 - k);
         
         return {
             c: Math.round(c * 100),
@@ -337,7 +306,7 @@ class ColorPicker {
         if (diff !== 0) {
             switch (max) {
                 case r:
-                    h = (g - b) / diff + (g < b ? 6 : 0);
+                    h = ((g - b) / diff) % 6;
                     break;
                 case g:
                     h = (b - r) / diff + 2;
@@ -346,11 +315,12 @@ class ColorPicker {
                     h = (r - g) / diff + 4;
                     break;
             }
-            h /= 6;
+            h = h * 60;
+            if (h < 0) h += 360;
         }
         
         return {
-            h: Math.round(h * 360),
+            h: Math.round(h),
             s: Math.round(s * 100),
             v: Math.round(v * 100)
         };
